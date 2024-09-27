@@ -6,7 +6,16 @@
     Libro::Libro(std::string nombre, std::string autor, std::string isbn, std::string fechaPublicacion, std::string resumen)
     : MaterialBibliografico(nombre,autor,isbn),
     nombre(nombre), isbn(isbn),autor(autor),
-     fechaPublicacion(fechaPublicacion), resumen(resumen){}
+     fechaPublicacion(fechaPublicacion), resumen(resumen){
+        this->idUsuario = "S/U";
+        this->prestado = false;
+     }
+    void  Libro::setIdUsuario(std::string id){
+        this->idUsuario = id;
+    }
+    std::string Libro::getIdUsuario(){
+        return this->idUsuario;
+    }
 
     std::string Libro::getAutor(){
         return this->autor;
@@ -23,13 +32,12 @@
     std::string Libro::getResumen(){
         return this->resumen;
     }
-    void Libro::setPrestado(bool prestado){
-        this->prestado = prestado;
-    }
+
     std::string Libro::mostrarInformacion(){
-        return  "Nombre: " + this->nombre + "\nAutor: " + this->autor +"\nFechaPublicacion: "+this->fechaPublicacion
-        +"\nResumen: "+this->resumen +"\nIsbn: "+this->isbn;
+        std::string texto, estado;
+        texto+=MaterialBibliografico::mostrarInformacion();
+        return  texto + "\nFechaPublicacion: "+this->fechaPublicacion
+        +"\nResumen: "+this->resumen + "\n";
     }
     Libro::~Libro(){
-        std::cout << " Se ha eliminado el objeto Libro" << std::endl;
     }
