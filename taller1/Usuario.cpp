@@ -6,28 +6,59 @@ Usuario::Usuario(std::string nombre, std::string id){
     this -> id = id;
 
 }
-void Usuario::devolverMaterial(MaterialBibliografico* material){}
-void Usuario::mostrarMaterialesPrestados(){
-    for (int i = 0; i <sizeof(materialesPrestados); i++){
-        if(materialesPrestados[i] != nullptr)
-        std::cout << "Material " << i << ": " << materialesPrestados[i]->getNombre()<<std::endl;
-    }
+std::string Usuario::getId(){
+    return this->id;
 }
-void Usuario::prestarMaterial(MaterialBibliografico* material){
-    for (int i = 0; i < sizeof(materialesPrestados); i++)
-        {   if(materialesPrestados[i] == nullptr){
+std::string Usuario::getNombre(){
+    return this->nombre;
+}
+bool Usuario::devolverMaterial(MaterialBibliografico* material){
+     for (int i = 0; i < MAX_MATERIALES; i++){  
+        if(materialesPrestados[i] == material && materialesPrestados[i]!=nullptr){
+            material->setPrestado(false);
+            material->setIdUsuario("S/U");
+            materialesPrestados[i] = nullptr;
+            return true;
+        } 
+    }
+            return false;
+}
+
+bool Usuario::prestarMaterial(MaterialBibliografico* material){
+    if(material->getPrestado()==true){
+        return false;
+    }
+    for (int i = 0; i < MAX_MATERIALES; i++){
+        if(this->materialesPrestados[i] == nullptr ){
             materialesPrestados[i] = material;
-            break;
-        } else if (materialesPrestados[i] == material){
-            std::cout  << "Este material ya fue prestado por este usuario" << std::endl;
-            break;
-        }
-        else {
-            std::cout << "No hay espacio disponible para prestar el material" << std::endl;
-            break;
+            material->setPrestado(true);    
+            material->setIdUsuario(this->id);
+            return true;
         }
     }
+    return false;
 }
+    void Usuario::eliminarMaterialLista(){
+        for (int i = 0; i < MAX_MATERIALES; i++){
+        if(this->materialesPrestados[i] != nullptr ){
+            this->materialesPrestados[i]->setPrestado(false);
+            materialesPrestados[i] = nullptr;
+        }
+        }
+    }
+    std::string Usuario::imprimirLista(){
+        std::string texto = "";
+        for (int i = 0; i < MAX_MATERIALES; i++){
+        if(this->materialesPrestados[i]!=nullptr ){
+            texto +=  this->materialesPrestados[i]->getNombre() + "\n";
+        }
+        }
+        if(texto==""){
+            return texto = "No hay materiales prestados";
+        }
+         return texto = "Materiales prestados:\n" + texto;
+        
+    }
   Usuario::~Usuario(){
 
   }

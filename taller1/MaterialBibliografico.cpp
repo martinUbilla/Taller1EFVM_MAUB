@@ -1,15 +1,29 @@
-#include "materialBibliografico.h"
+#include "MaterialBibliografico.h"
 #include <iostream>
-
     MaterialBibliografico::MaterialBibliografico(std::string nombre,std::string autor,std::string isbn){
         this->nombre = nombre;
         this->isbn = isbn;
         this->autor = autor;
+        this->idUsuario = "S/U";
         this->prestado = false;
     }
-    void MaterialBibliografico::setPrestado(bool prestado){
-        this->prestado = prestado;
+    
+    void  MaterialBibliografico::setIdUsuario(std::string idUsuario){
+        this->idUsuario = idUsuario;
     }
+   void  MaterialBibliografico::setPrestado(bool prestado){
+        this->prestado =  prestado;
+
+    }
+
+    std::string MaterialBibliografico::getIdUsuario(){
+        return this->idUsuario;
+    }
+    
+    std::string  MaterialBibliografico::getIsbn(){
+        return this->isbn;
+    }
+
     bool MaterialBibliografico::getPrestado(){
         return this->prestado;
     }
@@ -20,11 +34,18 @@
         return this->autor;
     }
     std::string MaterialBibliografico::mostrarInformacion(){
+        // cout de las variables de la clase padre.
+        std::string estado;
+        if(getPrestado()==true){
+        estado="Prestado";
+    }else{
+        estado="Disponible";
+    }
+        return  "--------------------------------------\nTitulo: " + nombre + "\nAutor: " + autor + "\nISBN: "+  isbn+"\nEstado: " + estado;
     }
     MaterialBibliografico::~MaterialBibliografico(){
-        std::cout<<"se ha eliminado el objeto MaterialBibligrafico"<<std::endl;
-    }
-;
+    };
+
 
 
  
