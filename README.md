@@ -68,3 +68,27 @@ Esto es un sistema para una biblioteca en la que habrá diferentes funciones par
 `Materiales.txt` = Archivo en el que se lee y guarda informacion de los materiales ingresados en el sistema de la biblioteca
 
 ## Información de los objetos que se crean en el main
+## Usuarios:
+Los usuarios que se crearán al iniciar el programa serán:
+
+- **ID:** `JPX-874-29Q7-45` - **Nombre:** Juan Pérez
+- **ID:** `MLZ-129-7TQ3-88` - **Nombre:** María López
+- **ID:** `CGY-563-9XN4-02` - **Nombre:** Carlos García
+
+Estos se crearán al leer el archivo `Usuarios.txt` de la siguiente manera:
+
+**Formato del archivo**:  
+`ID;NOMBRE`
+## Materiales Bibliográficos:
+
+- **TIPO:** `L` - **Título:** `1984` - **Autor:** `George Orwell` - **ISBN:** `100-1` - **Fecha de Publicación:** `08/06/1949` - **Resumen:** `Una distopía sobre un futuro totalitario donde se controla el pensamiento` - **IdUsuario:** `S/U`
+- **TIPO:** `L` - **Título:** `Sapiens: A Brief History of Humankind` - **Autor:** `Yuval Noah Harari` - **ISBN:** `978-0062316097` - **Fecha de Publicación:** `04/09/2014` - **Resumen:** `Historia de la humanidad desde sus inicios hasta la era moderna` - **IdUsuario:** `MLZ-129-7TQ3-88`
+- **TIPO:** `R` - **Título:** `National Geographic (Edición especial sobre el cambio climático)` - **Autor:** `Varios autores` - **ISBN:** `978-1426217138` - **Número Edición:** `Edición N° 9` - **Mes Publicación:** `Octubre` - **IdUsuario:** `JPX-874-29Q7-45`
+
+Estos se crearán al leer el archivo `Materiales.txt` de la siguiente manera:
+
+**Formato del archivo**:  
+`TIPO;TÍTULO;AUTOR;ISBN;ATRIBUTO 1 REVISTA O LIBRO;ATRIBUTO 2 REVISTA O LIBRO;IdUSUARIO`
+
+
+
