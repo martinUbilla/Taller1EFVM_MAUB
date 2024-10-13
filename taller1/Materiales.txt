@@ -1,2 +1,3 @@
-R;a;a;a;a;a;S/U
-L;w,w;w;w;w,a
+L;1984;George Orwell;100-1;08/06/1949;Una distopía sobre un futuro totalitario donde se controla el pensamiento;S/U
+L;Sapiens: A Brief History of Humankind,Yuval Noah Harari;978-0062316097;04/09/2014;Historia de la humanidad desde sus inicios hasta la era moderna;MLZ-129-7TQ3-88
+R;National Geographic (Edición especial sobre el cambio climático);Varios autores;978-1426217138;Edición N° 9;Octubre;JPX-874-29Q7-45
